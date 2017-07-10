@@ -222,6 +222,16 @@ namespace ChyHackerAPI.Controllers
             { return EDataType.景點; }
             else if (dataType.IndexOf("passengersna") != -1)
             { return EDataType.區域旅客國籍; }
+            else if (dataType.IndexOf("hotellist") != -1)
+            { return EDataType.旅館清單; }
+            else if (dataType.IndexOf("bablist") != -1)
+            { return EDataType.民宿清單; }
+            else if (dataType.IndexOf("hotelpeople") != -1)
+            { return EDataType.旅館人數; }
+            else if (dataType.IndexOf("babpeople") != -1)
+            { return EDataType.民宿人數; }
+            else if (dataType.IndexOf("poly") != -1)
+            { return EDataType.poly; }
             else
             {
                 throw new NotImplementedException();

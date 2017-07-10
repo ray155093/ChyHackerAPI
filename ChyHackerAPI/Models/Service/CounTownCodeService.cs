@@ -61,14 +61,20 @@ namespace ChyHackerAPI.Models.Service
                 ICounTownCodeQueryProvide query;
                 switch (_dataType)
                 {
+                    case EDataType.民宿清單:
+                        return query = new CounTownCodeQueryBab(input, _conn); 
+                    case EDataType.旅館清單:
+                        return query = new CounTownCodeQueryHotel(input,_conn);
                     case EDataType.景點:
                         return query = new CounTownCodeQueryPOI(input, _conn);
-                    case EDataType.旅館:
-                        throw new NotImplementedException();
-                        break;
+                    case EDataType.旅館人數:
+                        return query = new CounTownCodeQueryHotelPeople(input, _conn);
+                    case EDataType.民宿人數:
+                        return query = new CounTownCodeQueryBabPeople(input, _conn);
                     case EDataType.區域旅客國籍:
                         return query = new CounTownCodeQueryPassengersNa(input, _conn);
-                        break;
+                    case EDataType.poly:
+                        return query = new CounTownCodeQueryPoly(input, _conn);
                     default:
                         return null;
                 }

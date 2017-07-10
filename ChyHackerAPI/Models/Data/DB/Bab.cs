@@ -5,11 +5,7 @@ using System.Web;
 
 namespace ChyHackerAPI.Models.Data.DB
 {
-    public class Town:Poly
+    public class Bab:Hotel
     {
-        public string TOWN_ID { get; set; }
-        public string TOWN_NA { get; set; }
-
-       
     }
 }
