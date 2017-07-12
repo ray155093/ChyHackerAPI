@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ChyHackerAPI.Models.Data.CounTownCodeQery;
+using ChyHackerAPI.Models.Data.Enum;
 
 namespace ChyHackerAPI.Models.Service.CounTownCodeQery
 {
@@ -28,20 +29,52 @@ namespace ChyHackerAPI.Models.Service.CounTownCodeQery
 
             public object GetLists()
             {
-                var sqlStr = $@"SELECT TOP 1000 A.[COUN_NA] ,A.[TOWN_NA]
+                dynamic result;
+                var sqlStr = "";
+                switch (_input.QueryLevel)
+                {
+                    case EQueryLevel.Count:
+                        sqlStr = $@"SELECT TOP 1000 A.[COUN_NA] ,A.[TOWN_NA]
                                   ,[Name],[Class],[X] ,[Y]
                                   ,[ADD],[TEL],[Web]
-                                  ,[Description],[Pic],[SHAPE_97].ToString()'Poly'
+                                  ,[Description],[Pic]
+                                  ,[IS_Sidewalk]
+                                  ,[IS_BusStop]
+                                  ,CONVERT(INT,[NotQualify_Length])NotQualify_Length
+                                  ,CONVERT(INT,[Qualify_Length])Qualify_Length
+                                  ,[SHAPE_97].ToString()'Poly'
+                              FROM [RiChiCHYHacker].[dbo].[POI] A
+							  LEFT JOIN [dbo].[TOWNSHIP] B
+							  ON A.TOWN_ID= B.TOWN_ID 
+                            ";
+                        result = _ado.Select<Data.DB.POI>(sqlStr, null);
+                        return result;
+
+                        break;
+                    case EQueryLevel.Town:
+                        sqlStr = $@"SELECT TOP 1000 A.[COUN_NA] ,A.[TOWN_NA]
+                                  ,[Name],[Class],[X] ,[Y]
+                                  ,[ADD],[TEL],[Web]
+                                  ,[Description],[Pic] ,[IS_Sidewalk]
+                                  ,[IS_BusStop]
+                                  ,CONVERT(INT,[NotQualify_Length])NotQualify_Length
+                                  ,CONVERT(INT,[Qualify_Length])Qualify_Length
+                                  ,[SHAPE_97].ToString()'Poly'
                               FROM [RiChiCHYHacker].[dbo].[POI] A
 							  LEFT JOIN [dbo].[TOWNSHIP] B
 							  ON A.TOWN_ID= B.TOWN_ID 
                               WHERE A.TOWN_ID =@TOWN_ID";
 
-                Dictionary<string, object> _param = new Dictionary<string, object>();
-                _param.Add("@TOWN_ID", new MSParameters(_input.Town_ID, SQLType.NVarChar));
+                        Dictionary<string, object> _param = new Dictionary<string, object>();
+                        _param.Add("@TOWN_ID", new MSParameters(_input.Town_ID, SQLType.NVarChar));
+                        result = _ado.Select<Data.DB.POI>(sqlStr, _param);
+                        return result;
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
 
-                var result = _ado.Select<Data.DB.POI>(sqlStr, _param);
-                return result;
+
             }
 
             public object GetStatistics()

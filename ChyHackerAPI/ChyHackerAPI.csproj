@@ -212,6 +212,7 @@
     <Compile Include="Models\Data\DB\Bab.cs" />
     <Compile Include="Models\Data\DB\Hotel.cs" />
     <Compile Include="Models\Data\DB\HotelInfo.cs" />
+    <Compile Include="Models\Data\DB\NetInfo.cs" />
     <Compile Include="Models\Data\DB\PassengersNa.cs" />
     <Compile Include="Models\Data\DB\POI.cs" />
     <Compile Include="Models\Data\DB\Poly.cs" />
@@ -221,6 +222,7 @@
     <Compile Include="Models\Data\Enum\EQueryLevel.cs" />
     <Compile Include="Models\Data\Enum\EResponseType.cs" />
     <Compile Include="Models\IService\ICounTownCodeService.cs" />
+    <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryCountNetInfo.cs" />
     <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryBabPeople.cs" />
     <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryBab.cs" />
     <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryHotelPeople.cs" />

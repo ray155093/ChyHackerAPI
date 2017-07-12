@@ -232,6 +232,8 @@ namespace ChyHackerAPI.Controllers
             { return EDataType.民宿人數; }
             else if (dataType.IndexOf("poly") != -1)
             { return EDataType.poly; }
+            else if (dataType.IndexOf("countnetinfo") != -1)
+            { return EDataType.縣市網格; }
             else
             {
                 throw new NotImplementedException();

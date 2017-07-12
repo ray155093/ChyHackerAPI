@@ -75,6 +75,8 @@ namespace ChyHackerAPI.Models.Service
                         return query = new CounTownCodeQueryPassengersNa(input, _conn);
                     case EDataType.poly:
                         return query = new CounTownCodeQueryPoly(input, _conn);
+                    case EDataType.縣市網格:
+                        return query = new CounTownCodeQueryCountNetInfo(input, _conn);
                     default:
                         return null;
                 }

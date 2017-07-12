@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ChyHackerAPI.Models.Data.DB
 {
-    public class  POI: Town
+    public class POI : Town
     {
         public string COUN_NA { set; get; }
         public string Name { set; get; }
@@ -17,5 +17,9 @@ namespace ChyHackerAPI.Models.Data.DB
         public string Web { set; get; }
         public string Description { set; get; }
         public string Pic { set; get; }
+        public string IS_Sidewalk { set; get; }
+        public string IS_BusStop { set; get; }
+        public string NotQualify_Length { set; get; }
+        public string Qualify_Length { set; get; }
     }
 }
