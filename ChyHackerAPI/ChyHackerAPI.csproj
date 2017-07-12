@@ -17,7 +17,7 @@
     <AssemblyName>ChyHackerAPI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -202,6 +202,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\SummaryVillController.cs" />
     <Compile Include="Controllers\CounTownCodeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -215,11 +216,14 @@
     <Compile Include="Models\Data\DB\PassengersNa.cs" />
     <Compile Include="Models\Data\DB\POI.cs" />
     <Compile Include="Models\Data\DB\Poly.cs" />
+    <Compile Include="Models\Data\DB\Village.cs" />
     <Compile Include="Models\Data\DB\Town.cs" />
     <Compile Include="Models\Data\Enum\EDataType.cs" />
     <Compile Include="Models\Data\Enum\EGeometryType.cs" />
     <Compile Include="Models\Data\Enum\EQueryLevel.cs" />
     <Compile Include="Models\Data\Enum\EResponseType.cs" />
+    <Compile Include="Models\Data\SummaryVillQuery\SummaryVillQueryInput.cs" />
+    <Compile Include="Models\IService\ISummaryVillService.cs" />
     <Compile Include="Models\IService\ICounTownCodeService.cs" />
     <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryBabPeople.cs" />
     <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryBab.cs" />
@@ -229,6 +233,8 @@
     <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryPoly.cs" />
     <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryPOI.cs" />
     <Compile Include="Models\Service\CounTownCodeService.cs" />
+    <Compile Include="Models\Service\SummaryVillService.cs" />
+    <Compile Include="Models\Service\SummaryVillQuery\SummaryVillQueryPoly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -314,7 +320,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54673</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:54673/</IISUrl>
+          <IISUrl>http://localhost/ChyHackerAPI</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -2,19 +2,19 @@
 
 namespace ChyHackerAPI.Models.IService
 {
-    public interface ICounTownCodeService
+    public interface ISummaryVillService
     {
         object GetLists();
 
         object GetStatistics();
     }
 
-    public abstract class CounTownCodeQuery
+    public abstract class SummaryVillQuery
     {
         public MSSQL _ado { get; set; }
     }
 
-    public interface ICounTownCodeQueryProvide
+    public interface ISummaryVillQueryProvide
     {
         object GetStatistics();
 
