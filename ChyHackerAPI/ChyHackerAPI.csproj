@@ -204,6 +204,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CounTownCodeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NetInfoController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,6 +215,7 @@
     <Compile Include="Models\Data\DB\Hotel.cs" />
     <Compile Include="Models\Data\DB\HotelInfo.cs" />
     <Compile Include="Models\Data\DB\NetInfo.cs" />
+    <Compile Include="Models\Data\DB\NetRequest.cs" />
     <Compile Include="Models\Data\DB\PassengersNa.cs" />
     <Compile Include="Models\Data\DB\POI.cs" />
     <Compile Include="Models\Data\DB\Poly.cs" />
@@ -233,6 +235,7 @@
     <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryPoly.cs" />
     <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryPOI.cs" />
     <Compile Include="Models\Service\CounTownCodeService.cs" />
+    <Compile Include="Models\Service\NetInfoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -269,6 +272,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\ChiHackerAPI.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

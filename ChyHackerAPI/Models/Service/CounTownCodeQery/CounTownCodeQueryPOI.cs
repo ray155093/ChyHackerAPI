@@ -50,8 +50,9 @@ namespace ChyHackerAPI.Models.Service.CounTownCodeQery
 							  ON A.TOWN_ID= B.TOWN_ID 
                             ";
                         result = _ado.Select<Data.DB.POI>(sqlStr, null);
-                        //這樣轉過但是資料太多時會GG
+                        //這樣轉過但是資料太多時會因為controller的tojsonGG
                         /*
+                         * 
                         var dynamicResult = (IDictionary<string, object>)ToDynamic(result);
                         dynamicResult.Remove("TOWN_ID");
                         dynamicResult.Remove("TOWN_NA");

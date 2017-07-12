@@ -71,10 +71,9 @@ namespace ChyHackerAPI.Controllers
                 default:
                     base.JsonResponse(result);
                     break;
-
             }
-
         }
+       
     }
 
 }
