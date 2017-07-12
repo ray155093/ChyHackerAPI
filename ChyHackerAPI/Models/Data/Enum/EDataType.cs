@@ -19,8 +19,7 @@ namespace ChyHackerAPI.Models.Data.Enum
         旅館人數 = 5,
         民宿人數 = 6,
         poly = 7,
-        縣市網格=8
-
-
+        縣市網格=8,
+        縣市公車站 = 9
     }
 }

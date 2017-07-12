@@ -234,6 +234,8 @@ namespace ChyHackerAPI.Controllers
             { return EDataType.poly; }
             else if (dataType.IndexOf("countnetinfo") != -1)
             { return EDataType.縣市網格; }
+            else if (dataType.IndexOf("countbusstation") != -1)
+            { return EDataType.縣市公車站; }
             else
             {
                 throw new NotImplementedException();

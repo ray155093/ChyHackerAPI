@@ -65,6 +65,9 @@ namespace ChyHackerAPI.Controllers
                 case EDataType.景點:
                     base.JsonResponse<List<POI>>((List<POI>)result);
                     break;
+                case EDataType.縣市公車站:
+                    base.JsonResponse<List<BUSSTOPS>>((List<BUSSTOPS>)result);
+                    break;
                 default:
                     base.JsonResponse(result);
                     break;

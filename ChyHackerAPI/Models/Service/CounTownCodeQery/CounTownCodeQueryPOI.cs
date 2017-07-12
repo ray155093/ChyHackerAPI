@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using ChyHackerAPI.Models.Data.CounTownCodeQery;
 using ChyHackerAPI.Models.Data.Enum;
+using System.ComponentModel;
+using System.Dynamic;
 
 namespace ChyHackerAPI.Models.Service.CounTownCodeQery
 {
@@ -48,6 +50,13 @@ namespace ChyHackerAPI.Models.Service.CounTownCodeQery
 							  ON A.TOWN_ID= B.TOWN_ID 
                             ";
                         result = _ado.Select<Data.DB.POI>(sqlStr, null);
+                        //這樣轉過但是資料太多時會GG
+                        /*
+                        var dynamicResult = (IDictionary<string, object>)ToDynamic(result);
+                        dynamicResult.Remove("TOWN_ID");
+                        dynamicResult.Remove("TOWN_NA");
+                        dynamicResult.Remove("POLY");
+                        */
                         return result;
 
                         break;
@@ -80,6 +89,17 @@ namespace ChyHackerAPI.Models.Service.CounTownCodeQery
             public object GetStatistics()
             {
                 throw new NotImplementedException();
+            }
+            public dynamic ToDynamic(object obj)
+            {
+                IDictionary<string, object> result = new ExpandoObject();
+
+                foreach (PropertyDescriptor pro in TypeDescriptor.GetProperties(obj.GetType()))
+                {
+                    result.Add(pro.Name, pro.GetValue(obj));
+                }
+
+                return result as ExpandoObject;
             }
         }
     }

@@ -210,6 +210,7 @@
     </Compile>
     <Compile Include="Models\Data\CounTownCodeQery\CounTownCodeInput.cs" />
     <Compile Include="Models\Data\DB\Bab.cs" />
+    <Compile Include="Models\Data\DB\BUSSTOPS.cs" />
     <Compile Include="Models\Data\DB\Hotel.cs" />
     <Compile Include="Models\Data\DB\HotelInfo.cs" />
     <Compile Include="Models\Data\DB\NetInfo.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Models\Data\Enum\EQueryLevel.cs" />
     <Compile Include="Models\Data\Enum\EResponseType.cs" />
     <Compile Include="Models\IService\ICounTownCodeService.cs" />
+    <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryBusStation.cs" />
     <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryCountNetInfo.cs" />
     <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryBabPeople.cs" />
     <Compile Include="Models\Service\CounTownCodeQery\CounTownCodeQueryBab.cs" />
