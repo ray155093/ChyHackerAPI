@@ -15,6 +15,10 @@ namespace ChyHackerAPI.Models.Data.DB
         public string STOPNAME { get; set; }
         public string IS_BUS { get; set; }
         public string XY { get; set; }
-  
+        public string COLOR_COUNT_POI { get; set; }
+        public string COLOR_NEAR_DIST { get; set; }
+        public string [][] coordinates { get; set; }
+
+
     }
 }
