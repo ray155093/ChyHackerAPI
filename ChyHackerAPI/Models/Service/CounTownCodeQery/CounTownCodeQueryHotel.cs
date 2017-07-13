@@ -31,7 +31,7 @@ namespace ChyHackerAPI.Models.Service.CounTownCodeQery
                 var sqlStr = $@"
                                 SELECT
                                 HOTEL_NAME NAME, BOSS, TEL, FAX, ADDRESS, ROOM_NUM
-                                , ROOM_PRICE, AREA, CUSTOMER, STUFF, X, Y
+                                , ROOM_PRICE, AREA,AVG_ROOM_PRICE, CUSTOMER, STUFF, X, Y
                                 FROM HOTEL_LIST
                                 WHERE TOWN_ID =@TOWN_ID
                                 ";
