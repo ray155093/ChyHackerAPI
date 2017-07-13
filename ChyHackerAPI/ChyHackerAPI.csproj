@@ -216,6 +216,7 @@
     <Compile Include="Models\Data\DB\PassengersNa.cs" />
     <Compile Include="Models\Data\DB\POI.cs" />
     <Compile Include="Models\Data\DB\Poly.cs" />
+    <Compile Include="Models\Data\DB\SummaryVill.cs" />
     <Compile Include="Models\Data\DB\Village.cs" />
     <Compile Include="Models\Data\DB\Town.cs" />
     <Compile Include="Models\Data\Enum\EDataType.cs" />

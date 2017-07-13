@@ -33,12 +33,26 @@ namespace ChyHackerAPI.Models.Service
                 var sqlStr = $@"SELECT OBJECTID,COUN_ID,COUN_NA,TOWN_ID,TOWN_NA,VLG_ID,VLG_NA
                                 ,centroid_X,centroid_Y,Shape.ToString() ShapePOLY
                                 ,Replace (Replace (Replace (Shape.ToString(), 'POLYGON','' ), '((','' ), '))','' ) POLY
-                                FROM VillageNode
-                                ORDER BY 1";
+                                ,IsShow
+                                FROM VillageNode ORDER BY 1";
 
                 Dictionary<string, object> _param = new Dictionary<string, object>();
 
                 var result = _ado.Select<Data.DB.Village>(sqlStr, _param);
+                return result;
+            }
+
+            public object GetStatistics(string _vill_id)
+            {
+                var sqlStr = $@"SELECT  OBJECTID ,COUN_NA,TOWN_NA,VLG_NA,POI_Culture,POI_Monuments,POI_Food,POI_landscape
+                                  ,Transportation_NoBus,Transportation_NOsidewalk,Transportation_NotOKsidewalk
+                                  ,Industry_card,Industry_Nocard,Replace (Replace (Replace (Shape.ToString(), 'POLYGON','' ), '((','' ), '))','' ) POLY
+                                  ,VLG_ID FROM SUMMARY_Village ";
+                sqlStr += "where VLG_ID='" + _vill_id + "'";
+                sqlStr += " ORDER BY 1";
+                Dictionary<string, object> _param = new Dictionary<string, object>();
+
+                var result = _ado.Select<Data.DB.SummaryVill>(sqlStr, _param);
                 return result;
             }
 

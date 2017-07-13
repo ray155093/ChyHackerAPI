@@ -16,6 +16,8 @@ namespace ChyHackerAPI.Models.IService
 
     public interface ISummaryVillQueryProvide
     {
+        object GetStatistics(string vill_id);
+
         object GetStatistics();
 
         object GetLists();

@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace ChyHackerAPI.Models.Data.DB
+﻿namespace ChyHackerAPI.Models.Data.DB
 {
-    public class Town:Poly
+    public class Village : Poly
     {
-        public string TOWN_ID { get; set; }
-        public string TOWN_NA { get; set; }
-
-       
+        public string VLG_ID { get; set; }
+        public string VLG_NA { get; set; }
+        public int IsShow { get; set; }
     }
 }

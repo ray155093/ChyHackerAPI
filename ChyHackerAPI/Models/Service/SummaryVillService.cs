@@ -28,6 +28,13 @@ namespace ChyHackerAPI.Models.Service
             return result;
         }
 
+        public object GetStatistics(string _vill_id)
+        {
+            ISummaryVillQueryProvide query = _DataTypeFactory.CreateQuery(_input);
+            var result = query.GetStatistics(_vill_id);
+            return result;
+        }
+
         public object GetStatistics()
         {
             ISummaryVillQueryProvide query = _DataTypeFactory.CreateQuery(_input);

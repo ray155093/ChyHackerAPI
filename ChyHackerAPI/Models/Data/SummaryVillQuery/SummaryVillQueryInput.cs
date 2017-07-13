@@ -25,6 +25,11 @@ namespace ChyHackerAPI.Models.Data.SummaryVillQuery
         public string Town_ID { get; set; }
 
         /// <summary>
+        /// 村里代碼
+        /// </summary>
+        public string Vill_ID { get; set; }
+
+        /// <summary>
         /// 統計區代碼
         /// </summary>
         public string Code { get; set; }

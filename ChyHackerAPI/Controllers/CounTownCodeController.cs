@@ -1,11 +1,5 @@
 ﻿using ChyHackerAPI.Models.Data.CounTownCodeQery;
 using ChyHackerAPI.Models.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
 
 namespace ChyHackerAPI.Controllers
 {
@@ -14,7 +8,7 @@ namespace ChyHackerAPI.Controllers
         /// <summary>
         /// 清單
         /// </summary>
-        /// <param name="town_id">The town identifier.</param>
+        /// <param name="vill_id">The town identifier.</param>
         /// <param name="type">The type.</param>
         public void Get(string town_id, string type)
         {
@@ -28,6 +22,7 @@ namespace ChyHackerAPI.Controllers
             var result = service.GetLists();
             base.JsonResponse(result);
         }
+
         public void Get(string town_id, int year, int month, string type)
         {
             var input = new CounTownCodeInput
@@ -43,5 +38,4 @@ namespace ChyHackerAPI.Controllers
             base.JsonResponse(result);
         }
     }
-
 }

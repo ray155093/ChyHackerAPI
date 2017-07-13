@@ -23,32 +23,20 @@ namespace ChyHackerAPI.Controllers
         /// </summary>
         /// <param name="town_id">The town identifier.</param>
         /// <param name="type">The type.</param>
-        public void Get(string town_id, string type)
+        public void Get(string vill_id)
         {
             var input = new SummaryVillInput
             {
-                Town_ID = town_id,
-                DataType = GetDataType(type)
+                Vill_ID = vill_id,
             };
             var service = new SummaryVillService(input);
-
-            var result = service.GetLists();
+            var result = service.GetStatistics(vill_id);
             base.JsonResponse(result);
         }
 
-        public void Get(string town_id, int year, int month, string type)
-        {
-            var input = new SummaryVillInput
-            {
-                Town_ID = town_id,
-                DataType = GetDataType(type),
-                QueryYear = year,
-                QueryMonth = month
-            };
-            var service = new SummaryVillService(input);
-
-            var result = service.GetStatistics();
-            base.JsonResponse(result);
-        }
+        //public void Get(string town_id, int year, int month, string type)
+        //{
+        //    base.JsonResponse(result);
+        //}
     }
 }
