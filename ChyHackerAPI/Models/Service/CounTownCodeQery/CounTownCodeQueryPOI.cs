@@ -53,12 +53,13 @@ namespace ChyHackerAPI.Models.Service.CounTownCodeQery
                         //這樣轉過但是資料太多時會因為controller的tojsonGG
                         /*
                          * 
+                       
+                        */
                         var dynamicResult = (IDictionary<string, object>)ToDynamic(result);
                         dynamicResult.Remove("TOWN_ID");
                         dynamicResult.Remove("TOWN_NA");
                         dynamicResult.Remove("POLY");
-                        */
-                        return result;
+                        return dynamicResult;
 
                         break;
                     case EQueryLevel.Town:

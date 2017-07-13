@@ -19,13 +19,14 @@ namespace ChyHackerAPI.Controllers
         /// </summary>
         /// <param name="town_id">The town identifier.</param>
         /// <param name="type">The type.</param>
-        public void Get(string town_id, string type)
+        public void Get(string town_id, string type,string implementtype= "旅館")
         {
             _input = new CounTownCodeInput
             {
                 Town_ID = town_id,
                 DataType = GetDataType(type),
-                QueryLevel = Models.Data.Enum.EQueryLevel.Town
+                QueryLevel = Models.Data.Enum.EQueryLevel.Town,
+                ServiceImplementType = (implementtype == null) ? "旅館" : implementtype
             };
             var service = new CounTownCodeService(_input);
 
@@ -60,10 +61,13 @@ namespace ChyHackerAPI.Controllers
             switch (_input.DataType)
             {
                 case EDataType.縣市網格:
-                    base.JsonResponse<List<NetInfo>>((List<NetInfo>)result);
+                    base.JsonResponse2(result);
+                    //base.JsonResponse<List<NetInfo>>((List<NetInfo>)result);
+
                     break;
                 case EDataType.景點:
-                    base.JsonResponse<List<POI>>((List<POI>)result);
+                    base.JsonResponse2(result);
+                    //base.JsonResponse<List<POI>>((List<POI>)result);
                     break;
                 case EDataType.縣市公車站:
                     base.JsonResponse<List<BUSSTOPS>>((List<BUSSTOPS>)result);

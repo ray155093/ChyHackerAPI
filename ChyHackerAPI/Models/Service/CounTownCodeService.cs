@@ -81,6 +81,9 @@ namespace ChyHackerAPI.Models.Service
                         return query = new CounTownCodeQueryCountNetInfo(input, _conn);
                     case EDataType.縣市公車站:
                         return query = new CounTownCodeQueryBusStation(input, _conn);
+                    case EDataType.鄉鎮供需:
+                        return query = new CounTownCodeQueryTownSupplyDemand(input, _conn);
+                        
                     default:
                         return null;
                 }

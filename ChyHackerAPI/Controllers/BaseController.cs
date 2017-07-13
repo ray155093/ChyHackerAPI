@@ -113,7 +113,30 @@ namespace ChyHackerAPI.Controllers
             HttpContext.Current.Response.OutputStream.Write(bytes, 0, bytes.Length);
             HttpContext.Current.Response.End();
         }
-
+        /// <summary>
+        /// 使用Newtonsoft.Json實作
+        /// </summary>
+        /// <param name="returnObj">The return object.</param>
+        protected void JsonResponse2 (object returnObj) 
+        {
+            //將回傳的資料寫入Reponse中
+            //20150703 JavaScriptSerializer JSON字串超過4MB，就會發生maxJsonLength 不足，
+            //改用JSON.NET 做序列化 by Chad
+            //System.Web.Script.Serialization.JavaScriptSerializer objSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            //string _resultStr = objSerializer.Serialize(returnObj);
+            //將List JSON化
+            string _resultStr = JsonConvert.SerializeObject(returnObj);
+            byte[] bytes = Encoding.UTF8.GetBytes(_resultStr);
+            HttpContext.Current.Response.ClearContent();
+            HttpContext.Current.Response.BufferOutput = true;
+            HttpContext.Current.Response.ContentType = "application/json;charset=utf-8";
+            HttpContext.Current.Response.OutputStream.Write(bytes, 0, bytes.Length);
+            HttpContext.Current.Response.End();
+        }
+        /// <summary>
+        /// 使用預設方法實作
+        /// </summary>
+        /// <param name="returnObj">The return object.</param>
         protected void JsonResponse(object returnObj)
         {
             System.Web.Script.Serialization.JavaScriptSerializer objSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
@@ -236,6 +259,8 @@ namespace ChyHackerAPI.Controllers
             { return EDataType.縣市網格; }
             else if (dataType.IndexOf("countbusstation") != -1)
             { return EDataType.縣市公車站; }
+            else if (dataType.IndexOf("townsupplydemand") != -1)
+            { return EDataType.鄉鎮供需; }
             else
             {
                 throw new NotImplementedException();
