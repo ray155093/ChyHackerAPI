@@ -59,7 +59,7 @@ namespace ChyHackerAPI.Models.Service.CounTownCodeQery
                         dynamicResult.Remove("TOWN_ID");
                         dynamicResult.Remove("TOWN_NA");
                         dynamicResult.Remove("POLY");
-                        return dynamicResult;
+                        return result;
 
                         break;
                     case EQueryLevel.Town:

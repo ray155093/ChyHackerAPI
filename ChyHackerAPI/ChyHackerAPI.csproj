@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\ADO\" />
     <Folder Include="Models\Data\AreaQuery\" />
     <Folder Include="Models\Data\PointQuery\" />
     <Folder Include="Models\Service\AreaQuery\" />
