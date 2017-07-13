@@ -30,10 +30,11 @@ namespace ChyHackerAPI.Models.Service
             {
                 item.XY = item.XY.Split(new string[] { "POLYGON ((" }, StringSplitOptions.RemoveEmptyEntries)[0];
                 item.XY = item.XY.TrimEnd(')').TrimEnd(')');
-                item.coordinates = new string [5][];
+                var len = item.XY.Split(',').Length;
+                item.coordinates = new string [len][];
                
                 var arrays = item.XY.Split(',');
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < len; i++)
                 {
                     item.coordinates[i] = new string[2];
                     item.coordinates[i][0] = arrays[i].TrimStart(' ').Split(' ')[0];
