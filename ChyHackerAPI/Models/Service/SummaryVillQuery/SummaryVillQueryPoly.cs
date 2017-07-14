@@ -44,15 +44,24 @@ namespace ChyHackerAPI.Models.Service
 
             public object GetStatistics(string _vill_id)
             {
-                var sqlStr = $@"SELECT  OBJECTID ,COUN_NA,TOWN_NA,VLG_NA,POI_Culture,POI_Monuments,POI_Food,POI_landscape
-                                  ,Transportation_NoBus,Transportation_NOsidewalk,Transportation_NotOKsidewalk
-                                  ,Industry_card,Industry_Nocard,Replace (Replace (Replace (Shape.ToString(), 'POLYGON','' ), '((','' ), '))','' ) POLY
-                                  ,VLG_ID FROM SUMMARY_Village ";
-                sqlStr += "where VLG_ID='" + _vill_id + "'";
-                sqlStr += " ORDER BY 1";
-                Dictionary<string, object> _param = new Dictionary<string, object>();
+                //var sqlStr = "SELECT top 1 OBJECTID ,COUN_NA,TOWN_NA,VLG_ID,VLG_NA,POI_Culture,POI_Monuments,POI_Food,POI_landscape" +
+                //                  ",Transportation_NoBus,Transportation_NOsidewalk,Transportation_NotOKsidewalk" +
+                //                  ",Industry_card,Industry_Nocard,Replace (Replace (Replace (Shape.ToString(), 'POLYGON','' ), '((','' ), '))','' ) POLY" +
+                //                  " FROM SUMMARY_Village ";
 
-                var result = _ado.Select<Data.DB.SummaryVill>(sqlStr, _param);
+                //var sqlStr = $@"SELECT top 1 OBJECTID ,COUN_NA,TOWN_NA,VLG_ID,VLG_NA,POI_Culture,POI_Monuments,POI_Food,POI_landscape
+                //                  ,Transportation_NoBus,Transportation_NOsidewalk,Transportation_NotOKsidewalk
+                //                  ,Industry_card,Industry_Nocard                                   FROM SUMMARY_Village ";
+
+                // var sqlStr = "SELECT * FROM SUMMARY_Village Where [VLG_ID]='" + _vill_id + "'";
+                var sqlStr = "SELECT top 1 * FROM SUMMARY_Village";
+                // FROM VillageNode ORDER BY 1";
+                //"";
+
+                Dictionary<string, object> _param = new Dictionary<string, object>();
+                // _param.Add("@VLG_ID", new MSParameters(_vill_id, SQLType.NVarChar));
+                // var result = _ado.Select<Data.DB.SummaryVill>(sqlStr, _param);
+                var result = _ado.Select<Data.DB.SummaryVill>(sqlStr);
                 return result;
             }
 
