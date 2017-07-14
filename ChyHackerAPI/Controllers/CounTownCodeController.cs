@@ -2,6 +2,7 @@
 using ChyHackerAPI.Models.Data.DB;
 using ChyHackerAPI.Models.Data.Enum;
 using ChyHackerAPI.Models.Service;
+using System.Collections.Generic;
 
 namespace ChyHackerAPI.Controllers
 {

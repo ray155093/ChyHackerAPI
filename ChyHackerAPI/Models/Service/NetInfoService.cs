@@ -31,15 +31,32 @@ namespace ChyHackerAPI.Models.Service
                 item.XY = item.XY.Split(new string[] { "POLYGON ((" }, StringSplitOptions.RemoveEmptyEntries)[0];
                 item.XY = item.XY.TrimEnd(')').TrimEnd(')');
                 var len = item.XY.Split(',').Length;
-                item.coordinates = new string [len][];
-               
+                item.coordinates = new string[len][];
+
                 var arrays = item.XY.Split(',');
+                Dictionary<int, string[]> x = new Dictionary<int, string[]>();
+                Dictionary<int, string> y = new Dictionary<int, string>();
                 for (int i = 0; i < len; i++)
                 {
                     item.coordinates[i] = new string[2];
                     item.coordinates[i][0] = arrays[i].TrimStart(' ').Split(' ')[0];
                     item.coordinates[i][1] = arrays[i].TrimStart(' ').Split(' ')[1];
-            }
+                    string newstr = item.coordinates[i][0] +"_"+ item.coordinates[i][1];
+
+                    x.Add(i, item.coordinates[i]);
+                    y.Add(i, newstr);
+                }
+
+                var sss = y.GroupBy(s => s.Value).ToList();
+                item.coordinates = new string[sss.Count+1][];
+                for (int i = 0; i < sss.Count; i++)
+                {
+                    item.coordinates[i] = new string[2];
+                    item.coordinates[i][0] = y[i].Split('_')[0];
+                    item.coordinates[i][1] = y[i].Split('_')[1];
+                }
+                item.coordinates[sss.Count] = item.coordinates[0];
+
             }
             return olists;
 
