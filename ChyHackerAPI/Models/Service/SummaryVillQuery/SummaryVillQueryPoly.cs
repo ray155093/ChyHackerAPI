@@ -54,7 +54,7 @@ namespace ChyHackerAPI.Models.Service
                 //                  ,Industry_card,Industry_Nocard                                   FROM SUMMARY_Village ";
 
                 // var sqlStr = "SELECT * FROM SUMMARY_Village Where [VLG_ID]='" + _vill_id + "'";
-                var sqlStr = "SELECT top 1 * FROM SUMMARY_Village";
+                var sqlStr = "SELECT top 1 * FROM SUMMARY_Village where VLG_ID = '" + _vill_id + "'";
                 // FROM VillageNode ORDER BY 1";
                 //"";
 
