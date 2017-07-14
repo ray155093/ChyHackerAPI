@@ -16,11 +16,11 @@ namespace ChyHackerAPI.Models.Service.CounTownCodeQery
         /// </summary>
         /// <seealso cref="ChyHackerAPI.Models.IService.CounTownCodeQuery" />
         /// <seealso cref="ChyHackerAPI.Models.IService.ICounTownCodeQueryProvide" />
-        public class CounTownCodeQueryHotel : CounTownCodeQuery, ICounTownCodeQueryProvide
+        public class CounTownCodeQueryCountNetInfo : CounTownCodeQuery, ICounTownCodeQueryProvide
         {
             private CounTownCodeInput _input;
 
-            public CounTownCodeQueryHotel(CounTownCodeInput input, string _conn)
+            public CounTownCodeQueryCountNetInfo(CounTownCodeInput input, string _conn)
             {
                 this._input = input;
                 _ado = new MSSQL(_conn);
@@ -29,17 +29,20 @@ namespace ChyHackerAPI.Models.Service.CounTownCodeQery
             public object GetLists()
             {
                 var sqlStr = $@"
-                                SELECT
-                                HOTEL_NAME NAME, BOSS, TEL, FAX, ADDRESS, ROOM_NUM
-                                , ROOM_PRICE, AREA,AVG_ROOM_PRICE, CUSTOMER, STUFF, X, Y
-                                FROM HOTEL_LIST
-                                WHERE TOWN_ID =@TOWN_ID
+                                SELECT 
+                                  [PageName] [PAGENAME]
+                                  , CONVERT(int,[X])[X]
+                                  , CONVERT(int,[Y])[Y]
+                                 -- ,[BUFF_DIST]
+                                  ,[Count_POI] [COUNT_POI]
+                                  , CONVERT(int,[NEAR_DIST])[NEAR_DIST]
+                                  ,[StopName]+'('+[StopNameEn]+')' [STOPNAME]-- 最靠近的公車站名稱
+                                  ,[IS_BUS]--網格中心內500內有沒有公車站
+                                  ,[Shape].ToString() XY
+                              FROM [RiChiCHYHacker].[dbo].[BUSGRID]
+                              --6605
                                 ";
-
-                Dictionary<string, object> _param = new Dictionary<string, object>();
-                _param.Add("@Town_ID", new MSParameters(_input.Town_ID, SQLType.NVarChar));
-
-                var result = _ado.Select<Data.DB.Hotel>(sqlStr, _param);
+                var result = _ado.Select<Data.DB.NetInfo>(sqlStr, null);
                 return result;
             }
 

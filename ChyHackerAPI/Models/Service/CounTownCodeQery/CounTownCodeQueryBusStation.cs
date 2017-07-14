@@ -16,11 +16,11 @@ namespace ChyHackerAPI.Models.Service.CounTownCodeQery
         /// </summary>
         /// <seealso cref="ChyHackerAPI.Models.IService.CounTownCodeQuery" />
         /// <seealso cref="ChyHackerAPI.Models.IService.ICounTownCodeQueryProvide" />
-        public class CounTownCodeQueryHotel : CounTownCodeQuery, ICounTownCodeQueryProvide
+        public class CounTownCodeQueryBusStation : CounTownCodeQuery, ICounTownCodeQueryProvide
         {
             private CounTownCodeInput _input;
 
-            public CounTownCodeQueryHotel(CounTownCodeInput input, string _conn)
+            public CounTownCodeQueryBusStation(CounTownCodeInput input, string _conn)
             {
                 this._input = input;
                 _ado = new MSSQL(_conn);
@@ -29,17 +29,17 @@ namespace ChyHackerAPI.Models.Service.CounTownCodeQery
             public object GetLists()
             {
                 var sqlStr = $@"
-                                SELECT
-                                HOTEL_NAME NAME, BOSS, TEL, FAX, ADDRESS, ROOM_NUM
-                                , ROOM_PRICE, AREA,AVG_ROOM_PRICE, CUSTOMER, STUFF, X, Y
-                                FROM HOTEL_LIST
-                                WHERE TOWN_ID =@TOWN_ID
+                                SELECT TOP 1000 [OBJECTID]
+                                  ,[StopName]+'('+[StopNameEn]+')'[StopName]
+                                  ,[StopAddres]
+                                  ,[Lon]
+                                  ,[Lat]
+                                  ,CONVERT (INT,[X_97])X
+                                  ,CONVERT (INT,[Y_97])Y
+                              FROM [RiChiCHYHacker].[dbo].[BUSSTOPS]
                                 ";
 
-                Dictionary<string, object> _param = new Dictionary<string, object>();
-                _param.Add("@Town_ID", new MSParameters(_input.Town_ID, SQLType.NVarChar));
-
-                var result = _ado.Select<Data.DB.Hotel>(sqlStr, _param);
+                var result = _ado.Select<Data.DB.BUSSTOPS>(sqlStr, null);
                 return result;
             }
 

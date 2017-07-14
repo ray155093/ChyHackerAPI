@@ -36,7 +36,7 @@ namespace ChyHackerAPI.Models.Service.CounTownCodeQery
             {
                 var sqlStr = $@"SELECT TOP 1000 TOWN_NA, YEAR, MONTH, NATIONALITY, VALUE
                                   FROM [RiChiCHYHacker].[dbo].[Hotel_Contry] A
-                                  WHERE TOWN_ID =TOWN_ID AND [YEAR]=@YEAR AND [MONTH]=@MONTH
+                                  WHERE TOWN_ID =@TOWN_ID AND [YEAR]=@YEAR AND [MONTH]=@MONTH
                                   ORDER BY TOWN_ID
                                 ";
 

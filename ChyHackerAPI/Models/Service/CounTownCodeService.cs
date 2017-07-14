@@ -3,7 +3,9 @@ using ChyHackerAPI.Models.Data.Enum;
 using ChyHackerAPI.Models.IService;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using static ChyHackerAPI.Models.Service.CounTownCodeQery.CounTownCodeService;
@@ -75,6 +77,13 @@ namespace ChyHackerAPI.Models.Service
                         return query = new CounTownCodeQueryPassengersNa(input, _conn);
                     case EDataType.poly:
                         return query = new CounTownCodeQueryPoly(input, _conn);
+                    case EDataType.縣市網格:
+                        return query = new CounTownCodeQueryCountNetInfo(input, _conn);
+                    case EDataType.縣市公車站:
+                        return query = new CounTownCodeQueryBusStation(input, _conn);
+                    case EDataType.鄉鎮供需:
+                        return query = new CounTownCodeQueryTownSupplyDemand(input, _conn);
+                        
                     default:
                         return null;
                 }
@@ -83,6 +92,8 @@ namespace ChyHackerAPI.Models.Service
         }
 
         #endregion
+
+        
 
     }
 }

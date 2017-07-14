@@ -18,8 +18,9 @@ namespace ChyHackerAPI.Models.Data.Enum
         區域旅客國籍 = 4,
         旅館人數 = 5,
         民宿人數 = 6,
-        poly = 7
-
-
+        poly = 7,
+        縣市網格=8,
+        縣市公車站 = 9,
+        鄉鎮供需 = 10
     }
 }
