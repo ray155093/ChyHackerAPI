@@ -1,9 +1,9 @@
-﻿using ChyHackerAPI.Models.Data.SummaryVillQuery;
+﻿using ChyHackerAPI.Models.Data.SearchXYQuery;
 using ChyHackerAPI.Models.Service;
 
 namespace ChyHackerAPI.Controllers
 {
-    public class SummaryVillController : BaseController
+    public class Qry_UseXYController : BaseController
     {
         /// <summary>
         /// Gets the specified town identifier.
@@ -12,10 +12,7 @@ namespace ChyHackerAPI.Controllers
         public void Get()
 
         {
-            var service = new SummaryVillService();
-
-            var result = service.GetLists();
-            base.JsonResponse(result);
+            //Get 預設data
         }
 
         /// <summary>
@@ -23,14 +20,17 @@ namespace ChyHackerAPI.Controllers
         /// </summary>
         /// <param name="town_id">The town identifier.</param>
         /// <param name="type">The type.</param>
-        public void Get(string vill_id)
+        public void Get(string x, string y, int buffer)
         {
-            var input = new SummaryVillInput
+            var input = new SearchXYInput
+
             {
-                Vill_ID = vill_id,
+                X = x,
+                Y = y,
+                Buffer = buffer
             };
-            var service = new SummaryVillService(input);
-            var result = service.GetStatistics(vill_id);
+            var service = new SearchXYService(input);
+            var result = service.GetLists(input);
             base.JsonResponse(result);
         }
     }
