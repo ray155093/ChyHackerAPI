@@ -2,18 +2,20 @@
 using ChyHackerAPI.Models.Data.DB;
 using ChyHackerAPI.Models.Data.Enum;
 using ChyHackerAPI.Models.Service;
+using System.Collections.Generic;
 
 namespace ChyHackerAPI.Controllers
 {
     public class CounTownCodeController : BaseController
     {
         private CounTownCodeInput _input;
+
         /// <summary>
         /// 清單
         /// </summary>
         /// <param name="vill_id">The town identifier.</param>
         /// <param name="type">The type.</param>
-        public void Get(string town_id, string type,string implementtype= "旅館")
+        public void Get(string town_id, string type, string implementtype = "旅館")
         {
             _input = new CounTownCodeInput
             {
@@ -42,6 +44,7 @@ namespace ChyHackerAPI.Controllers
             var result = service.GetStatistics();
             base.JsonResponse(result);
         }
+
         public void Get(string type)
         {
             _input = new CounTownCodeInput
@@ -59,18 +62,20 @@ namespace ChyHackerAPI.Controllers
                     //base.JsonResponse<List<NetInfo>>((List<NetInfo>)result);
 
                     break;
+
                 case EDataType.景點:
                     base.JsonResponse2(result);
                     //base.JsonResponse<List<POI>>((List<POI>)result);
                     break;
+
                 case EDataType.縣市公車站:
                     base.JsonResponse<List<BUSSTOPS>>((List<BUSSTOPS>)result);
                     break;
+
                 default:
                     base.JsonResponse(result);
                     break;
             }
         }
-       
     }
 }
