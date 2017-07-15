@@ -8,6 +8,7 @@
         POI = 1,
         FACTORY = 2,
         TAIWANASK = 3,
-        TAIWANASKISGOOD = 4
+        TAIWANASKISGOOD = 4,
+        ALLPOI = 5
     }
 }

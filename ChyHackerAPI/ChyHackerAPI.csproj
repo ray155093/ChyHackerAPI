@@ -249,6 +249,7 @@
     <Compile Include="Models\Service\CounTownCodeService.cs" />
     <Compile Include="Models\IService\ISearchXYService.cs" />
     <Compile Include="Models\Service\NetInfoService.cs" />
+    <Compile Include="Models\Service\SearchXY\SearchXYQueryAllPoi.cs" />
     <Compile Include="Models\Service\SearchXY\SearchXYQueryTaiwanAsk.cs" />
     <Compile Include="Models\Service\SearchXY\SearchXYQueryTaiwanIsGood.cs" />
     <Compile Include="Models\Service\SearchXY\SearchXYQueryFactory.cs" />
