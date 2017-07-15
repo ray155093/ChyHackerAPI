@@ -14,5 +14,7 @@
         public string map_zh_jp { get; set; }
         public string event_image { get; set; }
         public string open_link { get; set; }
+        public string X97 { get; set; }
+        public string Y97 { get; set; }
     }
 }

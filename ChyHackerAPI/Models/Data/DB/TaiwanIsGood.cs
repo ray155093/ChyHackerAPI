@@ -8,5 +8,8 @@
         public string SITENAMEID { get; set; }
         public string lat { get; set; }
         public string lng { get; set; }
+
+        public string X97 { get; set; }
+        public string Y97 { get; set; }
     }
 }

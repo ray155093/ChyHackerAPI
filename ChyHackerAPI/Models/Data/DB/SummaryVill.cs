@@ -16,5 +16,9 @@
         public string VLG_ID { get; set; }
         public string Industry_card { get; set; }
         public string Industry_Nocard { get; set; }
+        public string HOTEL_COUNT { get; set; }
+        public string HOTEL_COSTUMER { get; set; }
+        public string HOTEL_OCCUPANCY { get; set; }
+        public string HOTEL_FOREIGNER { get; set; }
     }
 }
