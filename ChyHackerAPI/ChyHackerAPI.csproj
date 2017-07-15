@@ -204,6 +204,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\Qry_UseXYController.cs" />
+    <Compile Include="Models\Data\DB\UseXYFACTORY.cs" />
     <Compile Include="Models\Data\Enum\EDataPOIType.cs" />
     <Compile Include="Models\Data\SearchXY\SearchXYInput.cs" />
     <Compile Include="Controllers\SummaryVillController.cs" />
@@ -248,9 +249,14 @@
     <Compile Include="Models\Service\CounTownCodeService.cs" />
     <Compile Include="Models\IService\ISearchXYService.cs" />
     <Compile Include="Models\Service\NetInfoService.cs" />
+    <Compile Include="Models\Service\SearchXY\SearchXYQueryTaiwanAsk.cs" />
+    <Compile Include="Models\Service\SearchXY\SearchXYQueryTaiwanIsGood.cs" />
+    <Compile Include="Models\Service\SearchXY\SearchXYQueryFactory.cs" />
     <Compile Include="Models\Service\SearchXYService.cs" />
-    <Compile Include="Models\Service\SearchXY\SearchXYQueryPoly.cs" />
+    <Compile Include="Models\Service\SearchXY\SearchXYQueryPoi.cs" />
     <Compile Include="Models\Data\DB\UseXYPOI.cs" />
+    <Compile Include="Models\Data\DB\TaiwanAsk.cs" />
+    <Compile Include="Models\Data\DB\TaiwanIsGood.cs" />
     <Compile Include="Models\Service\SummaryVillService.cs" />
     <Compile Include="Models\Service\SummaryVillQuery\SummaryVillQueryPoly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

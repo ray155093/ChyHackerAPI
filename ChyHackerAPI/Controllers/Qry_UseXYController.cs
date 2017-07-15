@@ -1,4 +1,5 @@
-﻿using ChyHackerAPI.Models.Data.SearchXYQuery;
+﻿using ChyHackerAPI.Models.Data.Enum;
+using ChyHackerAPI.Models.Data.SearchXYQuery;
 using ChyHackerAPI.Models.Service;
 
 namespace ChyHackerAPI.Controllers
@@ -16,18 +17,31 @@ namespace ChyHackerAPI.Controllers
         }
 
         /// <summary>
-        /// 清單
+        /// Gets xy to data.
         /// </summary>
-        /// <param name="town_id">The town identifier.</param>
-        /// <param name="type">The type.</param>
-        public void Get(string x, string y, int buffer)
+        /// <param name="x">The x.</param>
+        /// <param name="y">The y.</param>
+        /// <param name="buffer">The buffer.</param>
+        /// <param name="type">The type = POI、Fc.</param>
+        public void Get(string x, string y, int buffer, EDataPOIType type)
         {
             var input = new SearchXYInput
-
             {
                 X = x,
                 Y = y,
-                Buffer = buffer
+                Buffer = buffer,
+                DataType = type
+            };
+            var service = new SearchXYService(input);
+            var result = service.GetLists(input);
+            base.JsonResponse(result);
+        }
+
+        public void Get(EDataPOIType type)
+        {
+            var input = new SearchXYInput
+            {
+                DataType = type
             };
             var service = new SearchXYService(input);
             var result = service.GetLists(input);

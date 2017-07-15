@@ -45,9 +45,6 @@ namespace ChyHackerAPI.Models.Service
             public object GetStatistics(string _vill_id)
             {
                 var sqlStr = "SELECT top 1 * FROM SUMMARY_Village where VLG_ID = '" + _vill_id + "'";
-
-                Dictionary<string, object> _param = new Dictionary<string, object>();
-
                 var result = _ado.Select<Data.DB.SummaryVill>(sqlStr);
                 return result;
             }

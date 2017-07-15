@@ -15,10 +15,6 @@ namespace ChyHackerAPI.Models.IService
 
     public interface ISearchXYQueryProvide
     {
-        object GetStatistics(string _X, string _Y, int _Buffer);
-
-        object GetStatistics();
-
         object GetLists(SearchXYInput input);
     }
 }

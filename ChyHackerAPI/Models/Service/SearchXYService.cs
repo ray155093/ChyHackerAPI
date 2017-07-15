@@ -18,8 +18,6 @@ namespace ChyHackerAPI.Models.Service
 
         public SearchXYService(SearchXYInput input)
         {
-            //ISummaryVillQueryProvide query = _DataTypeFactory.CreateQuery(_input);
-
             _input = input;
             _DataTypeFactory = new SimpleDataTypeFactory(input.DataType);
         }
@@ -50,12 +48,20 @@ namespace ChyHackerAPI.Models.Service
                 ISearchXYQueryProvide query;
                 switch (_dataType)
                 {
-                    case EDataPOIType.poly:
-                        return query = new SearchXYQueryPoly(_conn);
+                    case EDataPOIType.POI:
+                        return query = new SearchXYQueryPoi(_conn);
+
+                    case EDataPOIType.FACTORY:
+                        return query = new SearchXYQueryFactory(_conn);
+
+                    case EDataPOIType.TAIWANASK:
+                        return query = new SearchXYQueryTaiwanAsk(_conn);
+
+                    case EDataPOIType.TAIWANASKISGOOD:
+                        return query = new SearchXYQueryTaiwanIsGood(_conn);
 
                     default:
-                        //return null;
-                        return query = new SearchXYQueryPoly(_conn);
+                        return null;
                 }
             }
         }
