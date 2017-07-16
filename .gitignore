@@ -240,3 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Richi.Library.ADO
+/Richi.Library.Factory
+/Richi.Library.Common
+/ChyHackerAPI/Models/XML.cs
