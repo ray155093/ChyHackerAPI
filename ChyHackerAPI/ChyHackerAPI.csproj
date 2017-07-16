@@ -249,6 +249,7 @@
     <Compile Include="Models\Service\CounTownCodeService.cs" />
     <Compile Include="Models\IService\ISearchXYService.cs" />
     <Compile Include="Models\Service\NetInfoService.cs" />
+    <Compile Include="Models\Service\SearchXY\SearchXYQueryBusm.cs" />
     <Compile Include="Models\Service\SearchXY\SearchXYQueryAllPoi.cs" />
     <Compile Include="Models\Service\SearchXY\SearchXYQueryTaiwanAsk.cs" />
     <Compile Include="Models\Service\SearchXY\SearchXYQueryTaiwanIsGood.cs" />
@@ -258,6 +259,7 @@
     <Compile Include="Models\Data\DB\UseXYPOI.cs" />
     <Compile Include="Models\Data\DB\TaiwanAsk.cs" />
     <Compile Include="Models\Data\DB\TaiwanIsGood.cs" />
+    <Compile Include="Models\Data\DB\UseXYBUSM.cs" />
     <Compile Include="Models\Service\SummaryVillService.cs" />
     <Compile Include="Models\Service\SummaryVillQuery\SummaryVillQueryPoly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

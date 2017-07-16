@@ -59,8 +59,12 @@ namespace ChyHackerAPI.Models.Service
 
                     case EDataPOIType.TAIWANASKISGOOD:
                         return query = new SearchXYQueryTaiwanIsGood(_conn);
+
                     case EDataPOIType.ALLPOI:
                         return query = new SearchXYQueryAllPoi(_conn);
+
+                    case EDataPOIType.BUSM:
+                        return query = new SearchXYQueryBusm(_conn);
 
                     default:
                         return null;
